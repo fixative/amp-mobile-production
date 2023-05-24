@@ -1,0 +1,93 @@
+.coldOpen {
+  background-image: url("/public/assets/img/coldBG.svg");
+}
+
+.splash {
+  overflow: hidden;
+
+  ion-button {
+    width: 100%;
+  }
+}
+
+.heroLogo {
+  position: absolute;
+  top: 25%;
+  left: 5%;
+}
+
+.coldOpen ion-content {
+  --background: transparent !important;
+  text-align: center;
+}
+
+.coldOpen ion-footer {
+  color: white;
+}
+
+.coldOpen ion-text {
+  font-size: 15px;
+}
+
+.coldOpen .signin {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.28px;
+}
+
+a {
+  color: $ripePumpkin90;
+  font-weight: 500;
+  letter-spacing: -0.28px;
+}
+
+ion-tab-button {
+  --color-selected: #2B9D8E;
+}
+
+ion-content {
+  --background: transparent !important;
+}
+
+.introText {
+  font-size: 15px;
+  margin: 10px;
+  padding: 0;
+  display: block;
+}
+
+.topicHomeListItem{
+  display:block;
+  color:white;
+  .topicName{
+    position:absolute;
+    left:30px;
+    bottom:10px;
+    font-size:16px;
+    font-weight:500;
+    line-height:24px;
+  }
+
+}
+ion-item.topicHomeListItem::part(native) {
+  padding: 0;
+  width: 315px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.articleText{
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 26px;
+  display:block;
+  clear: both;
+}
+
+
