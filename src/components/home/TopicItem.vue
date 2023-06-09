@@ -1,10 +1,10 @@
 <template>
   <ion-item lines="none" class="topicItem">
-    <ion-img slot="start" class="topicThumb" :src="imageSrc"></ion-img>
+    <ion-img slot="start" class="topicThumb" :src="src"/>
     <ion-text>
       <p class="topicHeadline"><slot></slot></p>
       <p class="topicCta">
-        <ion-icon src="/assets/icon/topicIcon.svg"></ion-icon>
+        <ion-icon class="topicIcon" src="/assets/icon/topicIcon.svg"></ion-icon>
         {{ topic }}
       </p>
     </ion-text>
@@ -13,5 +13,8 @@
 
 <script setup lang="ts">
 import {IonIcon,IonImg,IonItem,IonText} from "@ionic/vue";
-defineProps(['topic','imageSrc'])
+defineProps(['topic','src'])
 </script>
+<style>
+
+</style>

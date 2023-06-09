@@ -28,8 +28,6 @@ export const useUserStore = defineStore("user", {
             how_long: "36",
             state: "NY",
             zip_code: "10101",
-            race: "White",
-            gender: "Male",
             topic_ids: ["sdfd"]
         } as User}),
 
@@ -78,7 +76,7 @@ export const useUserStore = defineStore("user", {
                     method: "post",
                     headers: {"Content-Type": "application/json"},
                     url: "users/create",
-                    data: user
+                    data: {user:user}
                 }
 
                 try {

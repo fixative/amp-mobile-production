@@ -1,11 +1,8 @@
 <template>
-  <ion-header>
 
-    <ion-header>
-      <vss-header @click="cancelModal">Sign In</vss-header>
-    </ion-header>
-  </ion-header>
+
   <ion-content>
+      <vss-header @click="cancelModal">Sign In</vss-header>
     <form @submit.prevent="login">
       <ion-item lines="none">
         <ion-label position="stacked">Email</ion-label>
@@ -23,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import {IonButton, IonContent, IonHeader, IonItem, IonLabel, modalController} from "@ionic/vue";
+import {IonButton, IonContent, IonItem, IonLabel, modalController} from "@ionic/vue";
 import {useAuthStore} from "@/store/auth.store";
 import {ref} from "vue"
 import VssHeader from "@/components/shared/vssHeader.vue"
@@ -40,8 +37,6 @@ async function login() {
       () => {
         console.error("Please try again")
       })
-
-
 }
 
 function cancelModal() {

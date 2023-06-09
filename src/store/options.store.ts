@@ -1,18 +1,17 @@
 import {defineStore} from "pinia";
 import OptionsService from "@/services/options.service";
-import {FormOptionGroup} from "@/types/FormOptionGroupType";
 
 interface OptionState {
-    optionGroups:(FormOptionGroup)[]
+    optionGroups:object
 }
 
 export const useOptionStore = defineStore("options", {
     state: (): OptionState => ({
-        optionGroups:[]
+        optionGroups: {}
     }),
     actions: {
         async fetchOptions(propName:string,endpointUrl:string) {
-
+            console.log("EPU",endpointUrl)
             return new Promise((resolve, reject) => {
                 OptionsService.fetchOptions(propName,endpointUrl).then(res => {
                     this.fetchSuccess(propName,res);
@@ -29,7 +28,11 @@ export const useOptionStore = defineStore("options", {
             });
         },
         fetchSuccess(propName:string,res:any){
-            this.optionGroups.push(res);
+            console.log("RES",res)
+            this.optionGroups[propName] = res.options.data;
+        },
+        getSubsetByAttr(optionSet:[],attrName:string,attrValue:any){
+            return optionSet.filter((v: any) => v[attrName] === attrValue);
         }
     },
     getters: {

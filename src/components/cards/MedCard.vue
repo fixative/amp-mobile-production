@@ -5,20 +5,17 @@
       <ion-card-title>Manage Medications</ion-card-title>
     </ion-card-header>
     <ion-card-content >
-      <ion-list v-if="medList">
-        <ion-item lines="none">
+      <ion-list v-if="medList && medList.length>0">
+        <ion-item lines="none" v-for="med in medList" :key="med">
           <ion-text>
-            <p class="medTime">Today at 9:00 PM</p>
-            <p class="medName">Truvada, 200mg</p>
-            <p class="medDose">Take 1 Capsule</p>
-          </ion-text>
-          <ion-checkbox></ion-checkbox>
-        </ion-item>
-        <ion-item lines="none">
-          <ion-text>
-            <p class="medTime">Today at 9:00 PM</p>
-            <p class="medName">Truvada, 200mg</p>
-            <p class="medDose">Take 1 Capsule</p>
+            <p class="medTime">{{
+                med.doseReminders[0].time.toLocaleTimeString([], {
+                  hour: '2-digit',
+                  minute: '2-digit'
+                })
+              }}</p>
+            <p class="medName">{{ med.name }}</p>
+            <p class="medDose">{{ med.frequency }}</p>
           </ion-text>
           <ion-checkbox></ion-checkbox>
         </ion-item>

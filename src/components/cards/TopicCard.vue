@@ -7,7 +7,7 @@
           <ion-text>
             <p class="topicHeadline"><slot></slot></p>
             <p class="topicCta">
-              <ion-icon src="/assets/icon/topicIcon.svg"></ion-icon>
+              <ion-icon class="cardIcon" src="/assets/icon/topicIcon.svg"></ion-icon>
               {{ topic }}
             </p>
           </ion-text>

@@ -14,6 +14,7 @@
 import {IonButton,IonItem} from "@ionic/vue";
 import {defineProps, ref, Ref,computed} from "vue";
 import {DayStatus} from "@/types/DayTypes";
+import {MedicationDays} from "@/types/MedicationTypes";
 
 
 const _days = {
@@ -26,8 +27,24 @@ const _days = {
   sun:ref(DayStatus.Inactive)
 }
 defineProps(["days"]);
+const emit = defineEmits(["dayChange"]);
 function toggleDay(day:Ref<string>){
     day.value = (day.value == DayStatus.Inactive) ? DayStatus.Active : DayStatus.Inactive;
+    const medDays:MedicationDays = {
+      sun: false,
+      mon: false,
+      tues: false,
+      wed: false,
+      thurs: false,
+      fri: false,
+      sat: false
+    };
+    Object.keys(_days).forEach((key:string)=>{
+      if(_days[key].value == 'active'){
+        medDays[key] = true;
+      }
+    })
+    emit("dayChange",medDays)
 }
 const days = computed(() => {
   return {

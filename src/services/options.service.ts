@@ -13,8 +13,10 @@ export const OptionsService = {
         {id: 5, text: "A different gender (Please specify)", position: 5} as FormOption,
     ],
     fetchOptions: async function (propName:string,url:string) {
+        console.log("Fetching ",propName,"at",url)
+        ApiService.setHeader();
         try {
-            ApiService.setHeader();
+
             return {name:propName,options: await ApiService.get(url)};
 
         } catch (error) {

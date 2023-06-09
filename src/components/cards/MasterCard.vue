@@ -7,7 +7,7 @@
     <ion-card-content>
       <ion-item lines="none">
         <ion-text>{{ desc }}</ion-text>
-        <ion-img :src="iconSrc" class="cardIcon"></ion-img>
+        <img :src="iconSrc" class="cardIcon" :alt="Capacitor.convertFileSrc(iconSrc)"/>
       </ion-item>
       <ion-button fill="clear" class="cardAddButton">
         <ion-icon size="large" slot="start" :icon="addCircle" ></ion-icon>
@@ -18,7 +18,9 @@
   </ion-item>
 </template>
 <script setup lang="ts">
-import {IonCard,IonCardHeader,IonCardTitle,IonCardContent,IonItem,IonText,IonImg,IonIcon,IonButton,IonLabel} from "@ionic/vue";
+import {IonCard,IonCardHeader,IonCardTitle,IonCardContent,IonItem,IonText,IonIcon,IonButton,IonLabel} from "@ionic/vue";
 import {addCircle} from "ionicons/icons";
+import {Capacitor} from "@capacitor/core";
+
 defineProps(["iconSrc","desc","cta"])
 </script>

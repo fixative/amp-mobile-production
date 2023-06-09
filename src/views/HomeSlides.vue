@@ -1,5 +1,5 @@
 <template>
-  <swiper :pagination="false" :slides-per-view="1">
+  <swiper :slides-per-view="1">
     <swiper-slide >
         <div class="imgHolder">
           <ion-img alt="Bros" src="assets/img/bros.png"/>

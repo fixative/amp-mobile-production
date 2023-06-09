@@ -24,7 +24,7 @@ const AuthService = {
             headers: {
                 "Content-Type": "multipart/form-data",
             },
-            url: process.env.VUE_APP_API_BASE_URL + "/oauth/token",
+            url: import.meta.env.VITE_APP_API_BASE_URL + "/oauth/token",
             data:{
                 "grant_type": "password",
                 "email": signInData.username,
@@ -52,8 +52,8 @@ const AuthService = {
         const requestData: AxiosRequestConfig = {
             method: "post",
             headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
-                Authorization: 'Basic ' + btoa(process.env.VUE_APP_CLIENT_ID + ':' + process.env.VUE_APP_CLIENT_SECRET)
+                "Content-Type": "multipart/form-data",
+                Authorization: 'Basic ' + btoa(import.meta.env.VITE_APP_CLIENT_ID + ':' + import.meta.env.VITE_APP_CLIENT_SECRET)
             },
             url: "/oauth/token",
             data: qs.stringify({
@@ -84,17 +84,21 @@ const AuthService = {
         ApiService.unmount401Interceptor();
     },
     signup: async function(user:User) {
-        console.log("auth signup called");
+        console.log("auth signup called",JSON.stringify({client_id:"Xqz59AcyizwDVzPy-ukNMrEVNRnWxbhVfkb95Pc04VY",user:user}));
         const signupData: AxiosRequestConfig = {
             method: "post",
-            headers: { "Content-Type": "application/json" },
-            url: "/aVpi/v1/users",
-            data: user
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                Authorization: 'Basic ' + btoa(import.meta.env.VITE_APP_CLIENT_ID + ':' + import.meta.env.VITE_APP_CLIENT_SECRET)
+            },
+            url: import.meta.env.VITE_APP_API_BASE_URL + "/api/v1/users/create",
+            data: {client_id:"Xqz59AcyizwDVzPy-ukNMrEVNRnWxbhVfkb95Pc04VY",user:user}
         };
 
         try {
             return await ApiService.customRequest(signupData);
         } catch (error) {
+            console.log("AUTH SERVICE ERROR:",error)
             this.catchError(error);
         }
     },

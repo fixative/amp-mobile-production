@@ -1,8 +1,8 @@
-import {createApp} from 'vue'
+import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
 
-import {IonicVue} from '@ionic/vue';
+import { IonicVue } from '@ionic/vue';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/vue/css/core.css';
@@ -25,16 +25,23 @@ import './theme/variables.css';
 
 import './global.scss'
 
-/* Pinia */
+
+/* Theme variables */
+import './theme/variables.css';
+
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
+
 import {createPinia} from "pinia";
 
 const pinia = createPinia();
+// Call the element loader after the platform has been bootstrapped
 const app = createApp(App)
     .use(pinia)
-    .use(IonicVue)
-    .use(router);
-
+  .use(IonicVue)
+  .use(router);
+  
 router.isReady().then(() => {
-    app.mount('#app');
+  app.mount('#app');
 
+  defineCustomElements(window);
 });

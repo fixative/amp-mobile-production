@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'vss-production',
+  appId: 'com.ntonic.vssamp',
+  appName: 'VSS-AMP',
   webDir: 'dist',
   bundledWebRuntime: false
 };

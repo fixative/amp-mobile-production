@@ -12,15 +12,13 @@ const UserService = {
         zip: "",
         state: "",
         howLong: "",
-        race: "",
-        gender: "",
         topics: []
     },
     async fetchUser(id: number) {
         if (id) {
             try {
-                ApiService.setHeader();
-                return await ApiService.get(process.env.VUE_APP_API_BASE_URL + "/api/v1/users/" + id);
+
+                return await ApiService.get(import.meta.env.VUE_APP_API_BASE_URL + "/api/v1/users/" + id);
             } catch (error) {
                 console.log(error);
             }

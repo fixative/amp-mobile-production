@@ -2,6 +2,7 @@ import {AuthenticationError, AuthService} from "@/services/auth.service";
 import {TokenService} from "@/services/token.service";
 import {defineStore} from "pinia";
 import {User} from "@/types/UserTypes"
+import ApiService from "@/services/api.service";
 
 interface AuthState {
     authenticating: boolean
@@ -85,6 +86,9 @@ export const useAuthStore = defineStore('authStore', {
             this.authenticationErrorCode = 0;
         },
         signInSuccess(res: any) {
+            TokenService.saveToken(res.access_token);
+            TokenService.saveRefreshToken(res.refresh_token);
+            ApiService.setHeader();
             this.accessToken = res.accessToken;
             this.authenticating = false;
         },

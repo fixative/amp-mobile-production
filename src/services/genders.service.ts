@@ -16,7 +16,7 @@ export const GendersService = {
 
         try {
             ApiService.setHeader();
-            return await ApiService.get(process.env.VUE_APP_API_BASE_URL+ "/api/v1/gender_identities");
+            return await ApiService.get(import.meta.env.VUE_APP_API_BASE_URL+ "/api/v1/gender_identities");
 
         } catch (error) {
             this.catchError(error);

@@ -5,7 +5,7 @@ interface ArticleState {
 
 }
 
-export const useArticleStore = defineStore('topics', {
+export const useArticleStore = defineStore('articles', {
     state: (): ArticleState => ({
         topics:[]
     }),

@@ -1,12 +1,12 @@
 <template>
-  <ion-header class="form-header">
+  <ion-header class="vss-header">
     <ion-toolbar>
-      <ion-buttons v-if="(hedType!=='home')">
+      <ion-buttons v-if="(hedType!=='noBack') && (hedType!=='home')">
         <ion-button @click="$emit('cancelModal')" fill="clear" class="closer">&lt;</ion-button>
       </ion-buttons>
-      <ion-img v-else class="heroLogo" src="/assets/img/amplogo.svg"></ion-img>
-      <ion-title v-if="(hedType!=='home')"><slot></slot></ion-title>
-      <ion-title v-else><slot></slot></ion-title>
+      <ion-img v-else-if="(hedType!=='home')" class="heroLogo" src="assets/img/amplogo.svg" />
+      <ion-title v-if="(hedType!=='noBack')"><slot></slot></ion-title>
+      <ion-title class="titleWithBack" v-else><slot></slot></ion-title>
     </ion-toolbar>
   </ion-header>
 </template>
@@ -18,5 +18,7 @@ defineEmits(['cancelModal'])
 </script>
 
 <style scoped>
-
+.titleWithBack{
+  left:4.5em !important;
+}
 </style>

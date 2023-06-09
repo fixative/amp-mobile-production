@@ -7,7 +7,7 @@
       <ion-card-content>
         <ion-list v-if="apptList">
           <ion-item lines="none">
-            <ion-img src="/assets/icon/fancySteth.svg"></ion-img>
+            <ion-img src="assets/icon/fancySteth.svg"/>
             <ion-text>
               <p class="apptName">Check in with Dr Smith</p>
               <p class="apptDate">November 19, 2022</p>
@@ -15,7 +15,7 @@
             </ion-text>
           </ion-item>
             <ion-item lines="none">
-              <ion-img src="/assets/icon/fancyMeds.svg"></ion-img>
+              <ion-img src="assets/icon/fancyMeds.svg"/>
               <ion-text>
                 <p class="apptName">Pick Up Truvada</p>
                 <p class="apptDate">November 19, 2022</p>
@@ -24,10 +24,10 @@
         </ion-list>
         <ion-item v-else lines="none">
           <ion-text>Keep track of when you need to take your medications.</ion-text>
-          <ion-img src="/assets/icon/fancySteth.svg" class="cardIcon"></ion-img>
+          <ion-img src="assets/icon/fancySteth.svg" class="cardIcon"/>
         </ion-item>
         <ion-button fill="clear" class="cardAddButton">
-          <ion-icon size="large" slot="start" :icon="addCircle"></ion-icon>
+          <ion-icon size="large" slot="start" :icon="addCircle" class="cardAddIcon"></ion-icon>
           <ion-label>Add Appointment</ion-label>
         </ion-button>
       </ion-card-content>
@@ -40,7 +40,6 @@ import {
   IonCardHeader,
   IonCardTitle,
   IonCardContent,
-  IonCheckbox,
   IonImg,
   IonItem,
   IonList,

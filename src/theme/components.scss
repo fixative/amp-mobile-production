@@ -148,11 +148,11 @@ ion-card {
   .cardAddButton {
     color: $lightJade;
 
-    ion-button {
+    .cardAddIcon {
       margin: 0 !important;
     }
 
-    ion-icon {
+    .cardAddIcon {
       margin-right: 5px;
     }
 
@@ -217,15 +217,19 @@ ion-toolbar {
   --background: $deepBlue90;
 }
 
-.form-header {
-  background: url("/public/assets/img/headerbg.svg");
+.vss-header {
+  background: url("@/assets/img/headerbg.svg");
+  background-size: 100%;
   height: 110px;
   font-weight: 700;
   font-size: 24px;
   line-height: 36px;
+  overflow: hidden;
+
 
 
   ion-toolbar {
+    padding-top:0 !important;
     --min-height: 110px;
     --color: white;
     background-color: var($deepBlue90) !important;
@@ -240,13 +244,14 @@ ion-toolbar {
 
     .closer {
       //
-      //position:absolute;
+      position:absolute;
       //bottom:30px;
-      //left:25px;
+      left:25px;
       width: 18px;
       height: 29px;
       font-size: 48px;
       font-weight: 400;
+      top:50%;
       --color: white;
       //margin:0;
     }
@@ -256,15 +261,23 @@ ion-toolbar {
   ion-title {
     font-size: 30px;
     position: absolute;
-    display:block;
-    top: 30%;
+    display: block;
+    top: 50%;
     left: 2em;
     justify-content: right;
     font-weight: 700;
     letter-spacing: -0.1px;
     padding: 0;
+    word-wrap: inherit;
+    width: 75%;
+    height: auto;
+    text-align: left;
 
   }
+}
+.titleWithBack{
+  left:4.5em;
+  justify-content: left;
 }
 
 .formContent {
@@ -336,6 +349,7 @@ ion-toolbar {
 
 .apptCard {
   display: block;
+  opacity:30%;
 
   ion-card-content {
     padding-bottom: 0;
@@ -377,6 +391,7 @@ ion-toolbar {
 }
 
 .mainCard {
+  opacity:30%;
   ion-card-content {
     padding-bottom: 0;
   }
@@ -406,7 +421,7 @@ ion-toolbar {
         letter-spacing: -0.28px;
       }
 
-      ion-icon {
+      .cardIcon {
         transform: translate(0, 2px)
       }
     }
@@ -416,10 +431,11 @@ ion-toolbar {
 .swiper {
   margin-bottom: -23px;
 
+
   .swiper-slide {
     .imgHolder {
       ion-img {
-        width: 390px;
+        width: 414px;
         height: 299px;
         object-fit: cover;
       }
@@ -446,22 +462,23 @@ ion-toolbar {
 
   color: #264653;
   background-color: #C6DAB4;;
-  background-image: url('/public/assets/img/inspoBG.svg');
+  background-image: url('@/assets/img/inspoBG.svg');
+  background-size:100%
 }
 
 .home-view {
   background-color: white !important;
-  background-image: url("/public/assets/img/homeBG.svg");
+  background-image: url("@/assets/img/homeBG.svg");
   background-position-y: 500px !important;
   background-repeat: no-repeat;
-  background-size: 400px 1508px;
-  background-attachment: local;
+  background-size: 480px;
+  width:100%;
+  padding:0;
 
   .home-feature {
     font-size: 24px;
     font-style: normal;
     font-weight: 800;
-    font-size: 24px;
   }
 
   ion-item.home-feature::part(native) {
@@ -471,7 +488,7 @@ ion-toolbar {
 
   ion-card {
     margin: 10px;
-    box-shadow: 0px 0px 8px rgba(38, 70, 83, 0.07);
+    box-shadow: 0 0 8px rgba(38, 70, 83, 0.07);
   }
 }
 
@@ -482,6 +499,13 @@ ion-toolbar {
   .topicThumb {
     height: 98px;
     display: inline-block;
+    aspect-ratio: 1;
+    overflow: hidden;
+
+  }
+  .topicThumb::part(image){
+      height:100%;
+      width:auto;
   }
 
   ion-text {
@@ -506,14 +530,14 @@ ion-toolbar {
       text-transform: uppercase;
     }
 
-    ion-icon {
+    .topicIcon {
       transform: translate(0, 2px)
     }
   }
 }
 
 .ion-padding {
-  margin-left: 5px;
+  //margin-left: 5px;
   font-size: 15px;
 }
 
@@ -550,7 +574,7 @@ ion-toolbar {
 }
 
 .tool-blurb {
-  background: url("/public/assets/img/diamondBackground.svg");
+  background: url("@/assets/img/diamondBackground.svg");
   min-height: 225px;
   font-weight: 600;
   font-size: 17px;
